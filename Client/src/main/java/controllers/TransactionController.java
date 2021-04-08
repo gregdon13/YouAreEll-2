@@ -12,6 +12,9 @@ public class TransactionController {
     private MessageController msgCtrl;
     private IdController idCtrl;
     private CloseableHttpClient callClient;
+    private Socket socket;
+
+    public TransactionController() {}
 
     public TransactionController(MessageController m, IdController j) {
         this.msgCtrl = m;
@@ -22,16 +25,22 @@ public class TransactionController {
     public void getConnection() {
         try{
             InetAddress address;
-            Socket socket = new Socket("http://zipcode.rocks:8085", 80);
+            socket = new Socket(rootURL, 80);
             address = socket.getInetAddress();
             System.out.println("Connected to " + address);
-            socket.close();
         } catch (UnknownHostException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
+    //closes connection to server
+    public void closeConnection() throws IOException {
+        socket.close();
+    }
+
+
 
 //    public List<Id> getIds() {
 //        return null;

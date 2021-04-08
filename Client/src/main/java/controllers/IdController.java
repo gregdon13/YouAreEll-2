@@ -1,9 +1,9 @@
 package controllers;
 
+import models.Id;
+
 import java.util.ArrayList;
 import java.util.HashMap;
-
-import models.Id;
 
 public class IdController {
     private HashMap<String, Id> allIds;
@@ -11,7 +11,9 @@ public class IdController {
     Id myId;
 
     public ArrayList<Id> getIds() {
-        return null;
+        ArrayList<Id> idList = new ArrayList<Id>();
+        idList.addAll(allIds.values());
+        return idList;
     }
 
     public Id postId(Id id) {

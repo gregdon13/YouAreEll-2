@@ -2,6 +2,7 @@ package views;
 
 import controllers.IdController;
 import controllers.MessageController;
+import controllers.TransactionController;
 import youareell.YouAreEll;
 
 import java.io.BufferedReader;
@@ -21,7 +22,7 @@ public class SimpleShell {
     }
     public static void main(String[] args) throws java.io.IOException {
 
-        YouAreEll urll = new YouAreEll(new MessageController(), new IdController());
+        YouAreEll urll = new YouAreEll(new MessageController(), new IdController(), new TransactionController());
         
         String commandLine;
         BufferedReader console = new BufferedReader
@@ -68,8 +69,8 @@ public class SimpleShell {
 
                 // ids
                 if (list.contains("ids")) {
-                    //String results = urll.get_ids();
-                    //SimpleShell.prettyPrint(results);
+                    String results = urll.getIdController().getIds().toString();
+                    SimpleShell.prettyPrint(results);
                     continue;
                 }
 
