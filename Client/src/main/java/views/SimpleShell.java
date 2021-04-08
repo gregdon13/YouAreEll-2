@@ -1,15 +1,15 @@
 package views;
 
+import controllers.IdController;
+import controllers.MessageController;
+import youareell.YouAreEll;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
-
-import controllers.IdController;
-import controllers.MessageController;
-import youareell.YouAreEll;
 
 // Simple Shell is a Console view for youareell.YouAreEll.
 public class SimpleShell {
@@ -68,15 +68,15 @@ public class SimpleShell {
 
                 // ids
                 if (list.contains("ids")) {
-                    String results = webber.get_ids();
-                    SimpleShell.prettyPrint(results);
+                    //String results = urll.get_ids();
+                    //SimpleShell.prettyPrint(results);
                     continue;
                 }
 
                 // messages
                 if (list.contains("messages")) {
-                    String results = webber.get_messages();
-                    SimpleShell.prettyPrint(results);
+                    //String results = urll.get_messages();
+                    //SimpleShell.prettyPrint(results);
                     continue;
                 }
                 // you need to add a bunch more.
@@ -95,18 +95,18 @@ public class SimpleShell {
                 }
 
                 // // wait, wait, what curiousness is this?
-                // Process process = pb.start();
+                 Process process = pb.start();
 
-                // //obtain the input stream
-                // InputStream is = process.getInputStream();
-                // InputStreamReader isr = new InputStreamReader(is);
-                // BufferedReader br = new BufferedReader(isr);
+                 //obtain the input stream
+                 InputStream is = process.getInputStream();
+                 InputStreamReader isr = new InputStreamReader(is);
+                 BufferedReader br = new BufferedReader(isr);
 
-                // //read output of the process
-                // String line;
-                // while ((line = br.readLine()) != null)
-                //     System.out.println(line);
-                // br.close();
+                 //read output of the process
+                 String line;
+                 while ((line = br.readLine()) != null)
+                     System.out.println(line);
+                 br.close();
 
 
             }
